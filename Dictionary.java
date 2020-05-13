@@ -9,8 +9,7 @@ public class Dictionary {
         BufferedReader reader;
         try {
                 //ex.1 - 4
-                String executionPath = System.getProperty("user.dir");
-                reader = new BufferedReader(new FileReader(executionPath + "\\test.txt"));
+                reader = new BufferedReader(new FileReader("/Job-Java/Job-Java/test.txt"));
                 
                 int count = 1;
                 String line;
@@ -23,13 +22,13 @@ public class Dictionary {
                 // finish code ex.1 -4
 
                 //ex.5
-                File file = new File(executionPath);
+                File file = new File("/Job-Java/Job-Java");
                 Report ReportStep5 = new Report();
                 File[] filesNames = file.listFiles();
                 
+                ReportStep5.GetReportSize(5); // call head table
                 if (file.isDirectory()) {
                     // File[] filesNames = file.listFiles();
-                    ReportStep5.GetReportSize(5); // call head table
                     count = 1;
                     for (File temp : filesNames) {
                         long size;
@@ -39,8 +38,6 @@ public class Dictionary {
                             System.out.println("|   "+ count++ + "     |      " + temp.getName() + "          |     " + ReportStep5.FileSize(size) + "     |");
                         }
                     }
-                } else {
-                    System.out.println("THIS IS NOT A FILE LOCATION!");
                 }
                 // finish code ex.5
 
@@ -48,8 +45,8 @@ public class Dictionary {
                 Zip zipDirectory = new Zip();
                 for (File temp : filesNames) {// loop list directory in path
                     if (temp.isDirectory()) { // check type direvtory or not
-                        System.out.println("Entry" + executionPath + "\\" + temp.getName() + "Zipping to " + executionPath + "\\" + temp.getName() + ".zip");
-                        zipDirectory.zipDirectory(executionPath + "\\" + temp.getName());// call funtion zip from class zip
+                        System.out.println("Entry /Job-Java/Job-Java/" + temp.getName() + "Zipping to /Job-Java/Job-Java/" + temp.getName() + ".zip");
+                        zipDirectory.zipDirectory("/Job-Java/Job-Java/" + temp.getName());// call funtion zip from class zip
                         System.out.println("Finish to zip: " + temp.getName() + ".zip");
                     }// end if
                 }// end loop for
@@ -66,7 +63,7 @@ public class Dictionary {
         String word = data.toLowerCase();
         String firstF = word.substring(0,1); // substr for set directory
         File firstL = new File(firstF);
-        String executionPath = System.getProperty("user.dir");
+        //String executionPath = System.getProperty("user.dir");
         //BufferedWriter write;
         
         System.out.println("No." + count + " Word: " + word) ;
@@ -77,11 +74,11 @@ public class Dictionary {
 
         if(word.length() > 1){
             String secondF = word.substring(1,2); // substr for set subdirectory
-            String SubPath = executionPath + "\\" + firstF + "\\" + secondF;
+            String SubPath = "/Job-Java/Job-Java/" + firstF + "/" + secondF;
             File SubDiectory = new File(SubPath);
 
             SubDiectory.mkdirs();
-            PrintWriter WriteFile = new PrintWriter(executionPath + "\\" + firstF + "\\" + secondF + "\\" + word + ".txt");
+            PrintWriter WriteFile = new PrintWriter("/Job-Java/Job-Java/" + firstF + "/" + secondF + "/" + word + ".txt");
             
             for(int i = 0; i < 100; i++){
                 WriteFile.write(word + ", ");
@@ -90,7 +87,7 @@ public class Dictionary {
             WriteFile.close();
             System.out.println("Save file successfully");
         }else{
-            PrintWriter WriteFile = new PrintWriter(executionPath + "\\" + firstF + "\\" + word + ".txt");
+            PrintWriter WriteFile = new PrintWriter("/Job-Java/Job-Java/" + firstF + "/" + word + ".txt");
 
             for(int i = 0; i < 100; i++){
                 WriteFile.write(word + ", ");
