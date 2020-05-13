@@ -9,8 +9,8 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
-class Zip {
-    public void compress(String dirPath) {
+public class Zip {
+    public void zipDirectory(String dirPath) {
         Path sourceDir = Paths.get(dirPath);
         String zipFileName = dirPath.concat(".zip");
         try {

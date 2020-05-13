@@ -23,19 +23,19 @@ public class Dictionary {
                 // finish code ex.1 -4
 
                 //ex.5
-                //String executionPath = System.getProperty("user.dir");
                 File file = new File(executionPath);
                 Report ReportStep5 = new Report();
+                File[] filesNames = file.listFiles();
                 
                 if (file.isDirectory()) {
-                    File[] filesNames = file.listFiles();
-                    ReportStep5.GetReportSize(5);
+                    // File[] filesNames = file.listFiles();
+                    ReportStep5.GetReportSize(5); // call head table
                     count = 1;
                     for (File temp : filesNames) {
                         long size;
                         if (temp.isDirectory()) {
                             File dirs = new File(temp.getPath());
-                            size = ReportStep5.CalulateSize(dirs);
+                            size = ReportStep5.CalulateSize(dirs); // sum size file in folder
                             System.out.println("|   "+ count++ + "     |      " + temp.getName() + "          |     " + ReportStep5.FileSize(size) + "     |");
                         }
                     }
@@ -45,6 +45,15 @@ public class Dictionary {
                 // finish code ex.5
 
                 //ex.6 
+                Zip zipDirectory = new Zip();
+                for (File temp : filesNames) {
+                    if (temp.isDirectory()) {
+                        System.out.println(executionPath + "\\" + temp.getName());
+                        zipDirectory.zipDirectory(executionPath + "\\" + temp.getName());
+                    }
+                }
+                
+
 
           } catch (FileNotFoundException e) {
                 System.out.println("Operation failed");
