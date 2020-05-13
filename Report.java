@@ -6,9 +6,9 @@ public class Report {
 
         if(c == 5){
             System.out.println("Report folder size");
-            System.out.println("-------------------------------------------------------");
-            System.out.println("|   No.   |   Folder Name   |       Folder size       |");
-            System.out.println("-------------------------------------------------------");
+            System.out.println("--------------------------------------------------------");
+            System.out.println("|   No.   |   Folder Name   |       Folder size (Kbyte)|");
+            System.out.println("--------------------------------------------------------");
         }else if(c == 6){
             System.out.println("Report folder size before and after zip");
             System.out.println("----------------------------------------------------------------------------------------------------------------------");
@@ -28,12 +28,7 @@ public class Report {
         return size;
     }
 
-    public String FileSize(long size) {
-        String unit = "bytes";
-        if (size > 1024) {
-            size = size / 1024;
-            unit = "Kbyte ";
-        }
-        return size + "  " + unit;
+    public long FileSize(long size) {
+        return size / 1024;
     }
 }
