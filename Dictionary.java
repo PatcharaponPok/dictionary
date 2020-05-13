@@ -46,13 +46,14 @@ public class Dictionary {
 
                 //ex.6 
                 Zip zipDirectory = new Zip();
-                for (File temp : filesNames) {
-                    if (temp.isDirectory()) {
-                        System.out.println(executionPath + "\\" + temp.getName());
-                        zipDirectory.zipDirectory(executionPath + "\\" + temp.getName());
-                    }
-                }
-                
+                for (File temp : filesNames) {// loop list directory in path
+                    if (temp.isDirectory()) { // check type direvtory or not
+                        System.out.println("Entry" + executionPath + "\\" + temp.getName() + "Zipping to " + executionPath + "\\" + temp.getName() + ".zip");
+                        zipDirectory.zipDirectory(executionPath + "\\" + temp.getName());// call funtion zip from class zip
+                        System.out.println("Finish to zip: " + temp.getName() + ".zip");
+                    }// end if
+                }// end loop for
+                // finish ex.6
 
 
           } catch (FileNotFoundException e) {
