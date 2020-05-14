@@ -15,7 +15,7 @@ public class Dictionary {
         ArrayList<String> NameFile = new ArrayList<>();
         try {
                 //ex.1 - 4
-                reader = new BufferedReader(new FileReader("/Job-Java/Job-Java/test.txt"));
+                reader = new BufferedReader(new FileReader("/Job-Java/Job-Java/words.txt"));
                 
                 int count = 1;
                 String line;
@@ -67,10 +67,8 @@ public class Dictionary {
 
                 ReportStep.GetReportSize(6);
                 for(int i = 0; i < SizeZip.size(); i++){
-                   //System.out.println("zip "+ SizeZip.get(i) +"   F " +Sizefolder.get(i) );
                     System.out.println("|\t"+ i + "\t|" + NameFile.get(i) + "\t\t\t|" + Sizefolder.get(i) + "\t\t\t\t\t|" + SizeZip.get(i) + "\t\t\t\t\t|\t\t" + (100 * SizeZip.get(i) / Sizefolder.get(i)) + "\t\t\t|");
-                }   //System.out.println("|\tNo\t|\tFolder Name\t|\tBefore zip size (Kbyte)\t\t|\tAfter zip size (Kbyte)\t|\tDifferent file size (%)\t|");
-
+                }   
                 System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------");
                 // finish ex.6 
 
