@@ -11,27 +11,28 @@ import java.util.zip.ZipOutputStream;
 
 public class Zip {
     public void zipDirectory(String dirPath) {
-        Path sourceDir = Paths.get(dirPath);
-        String zipFileName = dirPath.concat(".zip");
+        Path sourceDir = Paths.get(dirPath); // Path source directory
+        String zipFileName = dirPath.concat(".zip"); // Path file for build zip
         try {
-            final ZipOutputStream outputStream = new ZipOutputStream(new FileOutputStream(zipFileName));
-            Files.walkFileTree(sourceDir, new SimpleFileVisitor<Path>() {
-                public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {
+            final ZipOutputStream zipFile = new ZipOutputStream(new FileOutputStream(zipFileName));
+            Files.walkFileTree(sourceDir, new SimpleFileVisitor<Path>() { // walk in to folder in the form of a file tree
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attributes) {// call function invoked file in directory
                     try {
-                        Path targetFile = sourceDir.relativize(file);
-                        outputStream.putNextEntry(new ZipEntry(targetFile.toString()));
-                        byte[] bytes = Files.readAllBytes(file);
-                        outputStream.write(bytes, 0, bytes.length);
-                        outputStream.closeEntry();
+                        Path targetDir = sourceDir.relativize(file);// set taget source 
+                        zipFile.putNextEntry(new ZipEntry(targetDir.toString()));// build zip file
+                        byte[] bytes = Files.readAllBytes(file);// read all bytes in file
+                        zipFile.write(bytes, 0, bytes.length);
+                        zipFile.closeEntry();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
                     return FileVisitResult.CONTINUE;
                 }
             });
-            outputStream.close();
+            zipFile.close();
         } catch (IOException e) {
-            e.printStackTrace();
+            System.out.println("File compression failed");
+            //e.printStackTrace();
         }
     }
     

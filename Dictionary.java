@@ -4,7 +4,7 @@ import java.io.FileNotFoundException; // Import this class to handle errors
 import java.io.FileReader; // Read file
 import java.io.PrintWriter; // Import this class to write file
 import java.util.ArrayList; // Array list
-import java.util.zip.ZipEntry;
+//import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile; // Zip File
 
 public class Dictionary {
@@ -62,10 +62,10 @@ public class Dictionary {
                 }// end loop for
 
                 ReportStep.GetReportSize(6);
-                for(int i = 0; i < SizeZip.size(); i++){
-                    System.out.println("zip "+ SizeZip.get(i) +"   F " +Sizefolder.get(i) );
+                //for(int i = 0; i < SizeZip.size(); i++){
+                  //  System.out.println("zip "+ SizeZip.get(i) +"   F " +Sizefolder.get(i) );
                     //System.out.println(100 * SizeZip.get(i) / Sizefolder.get(i) );
-                }
+                //}
 
                 // finish ex.6
 
