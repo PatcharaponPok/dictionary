@@ -12,9 +12,10 @@ public class Dictionary {
         BufferedReader reader;
         ArrayList<Long> Sizefolder = new ArrayList<>();
         ArrayList<Long> SizeZip = new ArrayList<>();
+        ArrayList<String> NameFile = new ArrayList<>();
         try {
                 //ex.1 - 4
-                reader = new BufferedReader(new FileReader("/Job-Java/Job-Java/words.txt"));
+                reader = new BufferedReader(new FileReader("/Job-Java/Job-Java/test.txt"));
                 
                 int count = 1;
                 String line;
@@ -41,10 +42,12 @@ public class Dictionary {
                         if (temp.isDirectory()) {
                             File dirs = new File(temp.getPath());
                             size = ReportStep.CalulateSize(dirs); // sum size file in folder
-                            System.out.println("|   "+ count++ + "     |      " + temp.getName() + "          |          " + ReportStep.FileSize(size) + "              |");
+                            NameFile.add(temp.getName());
+                            System.out.println("|\t"+ count++ + "\t|" + temp.getName() + "\t\t\t|" + ReportStep.FileSize(size) + "\t\t\t\t|");
                             Sizefolder.add(ReportStep.FileSize(size));
                         }
                     }
+                    System.out.println("-------------------------------------------------------------------------");
                 }
                 // finish code ex.5
 
@@ -63,12 +66,13 @@ public class Dictionary {
                 //ZipFile.close();
 
                 ReportStep.GetReportSize(6);
-                //for(int i = 0; i < SizeZip.size(); i++){
-                  //  System.out.println("zip "+ SizeZip.get(i) +"   F " +Sizefolder.get(i) );
-                    //System.out.println(100 * SizeZip.get(i) / Sizefolder.get(i) );
-                //}
+                for(int i = 0; i < SizeZip.size(); i++){
+                   //System.out.println("zip "+ SizeZip.get(i) +"   F " +Sizefolder.get(i) );
+                    System.out.println("|\t"+ i + "\t|" + NameFile.get(i) + "\t\t\t|" + Sizefolder.get(i) + "\t\t\t\t\t|" + SizeZip.get(i) + "\t\t\t\t\t|\t\t" + (100 * SizeZip.get(i) / Sizefolder.get(i)) + "\t\t\t|");
+                }   //System.out.println("|\tNo\t|\tFolder Name\t|\tBefore zip size (Kbyte)\t\t|\tAfter zip size (Kbyte)\t|\tDifferent file size (%)\t|");
 
-                // finish ex.6
+                System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------");
+                // finish ex.6 
 
 
           } catch (FileNotFoundException e) {

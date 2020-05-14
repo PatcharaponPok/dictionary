@@ -6,14 +6,14 @@ public class Report {
 
         if(c == 5){
             System.out.println("Report folder size");
-            System.out.println("--------------------------------------------------------");
-            System.out.println("|   No.   |   Folder Name   |       Folder size (Kbyte)|");
-            System.out.println("--------------------------------------------------------");
+            System.out.println("-------------------------------------------------------------------------");
+            System.out.println("|\tNo.\t|\tFolder Name\t|\tFolder size (Kbyte)\t|");
+            System.out.println("-------------------------------------------------------------------------");
         }else if(c == 6){
             System.out.println("Report folder size before and after zip");
-            System.out.println("----------------------------------------------------------------------------------------------------------------------");
-            System.out.println("|   No.   |   Folder Name   |   Before zip size (Kbyte)   |   After zip size (Kbyte)   |   Different file size (%)   |");
-            System.out.println("----------------------------------------------------------------------------------------------------------------------");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------");
+            System.out.println("|\tNo\t|\tFolder Name\t|\tBefore zip size (Kbyte)\t\t|\tAfter zip size (Kbyte)\t|\tDifferent file size (%)\t\t|");
+            System.out.println("---------------------------------------------------------------------------------------------------------------------------------------------------------");
         }
     }
 
