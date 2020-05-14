@@ -14,7 +14,7 @@ public class Dictionary {
         ArrayList<Long> SizeZip = new ArrayList<>();
         try {
                 //ex.1 - 4
-                reader = new BufferedReader(new FileReader("/Job-Java/Job-Java/test.txt"));
+                reader = new BufferedReader(new FileReader("/Job-Java/Job-Java/words.txt"));
                 
                 int count = 1;
                 String line;
@@ -54,12 +54,13 @@ public class Dictionary {
                     if (temp.isDirectory()) { // check type direvtory or not
                         System.out.println("Entry "+ temp.getPath() + " Zipping to /Job-Java/Job-Java/" + temp.getName() + ".zip");
                         zipDirectory.zipDirectory("/Job-Java/Job-Java/" + temp.getName());// call funtion zip from class zip
-                        System.out.println("Finish to zip: " + temp.getName() + ".zip");
+                        System.out.println("Finish to zip file: " + temp.getName() + ".zip");
                         ZipFile zip_file = new ZipFile("/Job-Java/Job-Java/" + temp.getName() + ".zip");
                         long Szip = zip_file.size(); 
                         SizeZip.add(Szip);
                     }// end if
                 }// end loop for
+                //ZipFile.close();
 
                 ReportStep.GetReportSize(6);
                 //for(int i = 0; i < SizeZip.size(); i++){
